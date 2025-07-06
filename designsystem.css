@@ -1,0 +1,171 @@
+:root {
+  /* === COLORS === */
+  --color-background: #F5F8E3;
+  --color-terracotta: #DB7048;    /* Orange - page titles */
+  --color-forest: #354C36;       /* Dark green - navigation, CTAs, card headers, main menu headers */
+  --color-amber: #F7C556;        /* Golden yellow - headers on green backgrounds, CTA backgrounds */
+  --color-white: #FFFFFF;        /* White - card backgrounds, FAQ dropdown sections */
+
+  /* === TYPOGRAPHY === */
+  --font-family-serif: 'Source Serif Pro', serif;
+  
+  /* Headings */
+  --font-size-h1: 32px;
+  --font-size-h2: 28px;
+  --font-size-h3: 22px;
+  --font-size-h4: 18px;
+  
+  /* Body Text */
+  --font-size-body: 16px;
+  --line-height-body: 24px;
+  
+  --font-size-body-large: 18px;
+  --line-height-body-large: 27px;  /* 1.5 ratio for optimal readability */
+  
+  /* Labels */
+  --font-size-label: 16px;
+  --line-height-label: 20px;      /* 1.25 ratio for compact labels */
+}
+
+/* === UTILITY CLASSES === */
+
+/* Background */
+.bg-primary { background-color: var(--color-background); }
+.bg-terracotta { background-color: var(--color-terracotta); }
+.bg-forest { background-color: var(--color-forest); }
+.bg-amber { background-color: var(--color-amber); }
+.bg-white { background-color: var(--color-white); }
+
+/* Text Colors */
+.text-terracotta { color: var(--color-terracotta); }
+.text-forest { color: var(--color-forest); }
+.text-amber { color: var(--color-amber); }
+.text-white { color: var(--color-white); }
+
+/* Typography */
+.text-h1 { font-size: var(--font-size-h1); }
+.text-h2 { font-size: var(--font-size-h2); }
+.text-h3 { font-size: var(--font-size-h3); }
+.text-h4 { font-size: var(--font-size-h4); }
+
+.text-body { 
+  font-size: var(--font-size-body); 
+  line-height: var(--line-height-body); 
+}
+
+.text-body-large { 
+  font-size: var(--font-size-body-large); 
+  line-height: var(--line-height-body-large); 
+}
+
+.text-label { 
+  font-size: var(--font-size-label); 
+  line-height: var(--line-height-label); 
+}
+
+/* === BUTTON COMPONENTS === */
+
+.btn {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  padding: 12px 16px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Modifier for buttons that need to stack below content */
+.btn-stacked {
+  display: block;
+  margin-top: 16px;
+  width: fit-content;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-forest);
+  color: var(--color-amber);
+  border-color: var(--color-forest);
+}
+
+.btn-primary:hover {
+  background-color: #2a3e2b; /* Slightly darker forest on hover */
+  border-color: #2a3e2b;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-forest);
+  color: var(--color-amber);
+}
+
+/* === ACCORDION COMPONENT === */
+
+.accordion {
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.accordion-header {
+  background-color: var(--color-forest);
+  color: var(--color-amber);
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-h4); /* text/heading/small = 18px */
+  font-weight: 600;
+  padding: 12px 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background-color: #2a3e2b; /* Slightly darker forest on hover */
+}
+
+.accordion-icon {
+  color: var(--color-amber);
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.accordion-content {
+  background-color: var(--color-white);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content-inner {
+  padding: 12px 16px;
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-body); /* text/body/regular = 16px */
+  line-height: var(--line-height-body); /* 24px */
+  color: #333;
+}
+
+.accordion.open .accordion-content {
+  max-height: 500px; /* Adjust based on content */
+}
+
+.accordion.open .accordion-icon {
+  transform: rotate(180deg);
+}
